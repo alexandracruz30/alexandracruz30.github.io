@@ -62,16 +62,20 @@ document.addEventListener('DOMContentLoaded', () => {
         el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(el);
     });
-});
 
-// Handle file download click events (for analytics or tracking purposes)
-document.querySelectorAll('.file-link').forEach(link => {
-    link.addEventListener('click', function(e) {
-        const fileName = this.textContent.trim();
-        console.log(`Descargando: ${fileName}`);
-        // Here you can add analytics tracking or other functionality
+    // Handle file download click events (for analytics or tracking purposes)
+    document.querySelectorAll('.file-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+            const fileName = this.textContent.trim();
+            // Here you can add analytics tracking or other functionality
+            if (typeof window !== 'undefined' && window.console && window.console.log) {
+                // Only log in development environment
+            }
+        });
     });
 });
+
+
 
 // Mobile menu toggle (if needed in future)
 function initMobileMenu() {
@@ -92,7 +96,3 @@ function initMobileMenu() {
 }
 
 initMobileMenu();
-
-// Console message
-console.log('Portafolio de Redes Informáticas - Alexandra Cruz');
-console.log('Sitio web cargado correctamente');
