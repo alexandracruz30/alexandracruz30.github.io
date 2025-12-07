@@ -1,53 +1,113 @@
-# Guía de Uso - Portafolio de Redes Informáticas
+# Guía de Uso - Portafolio de Redes Informáticas (Reestructurado)
 
 ## ¡Bienvenido!
 
-Has creado exitosamente una página web completa para tu portafolio de Redes Informáticas. Esta guía te ayudará a personalizar y usar tu nuevo sitio web.
+Tu página web ha sido completamente reestructurada con una nueva organización que incluye:
+- **3 estudiantes** en la sección de perfil
+- **3 módulos** del curso con materiales
+- **6 laboratorios** prácticos
+- **Evaluaciones parciales** de los estudiantes
+- **Conclusión** del curso
 
-## 🚀 Inicio Rápido
+## 🚀 Servidor Web Local
 
-### 1. Ver tu sitio web
-Una vez que se fusione el Pull Request a la rama principal (main), tu sitio estará disponible en:
-- `https://alexandracruz30.github.io/`
+Para ver tu sitio mientras trabajas:
 
-### 2. Personalizar el contenido
-Abre el archivo `index.html` y busca los siguientes textos para reemplazar:
+```bash
+cd /workspaces/alexandracruz30.github.io
+python3 -m http.server 8000
+```
 
-#### Perfil del Estudiante
-- `[Nombre de la Institución]` → Nombre de tu universidad
-- `[Semestre actual]` → Tu semestre actual
-- `[correo@ejemplo.com]` → Tu correo electrónico
+Luego abre: `http://localhost:8000`
 
-#### Fechas
-- `[DD/MM/AAAA]` → Reemplaza con fechas reales (ej: 15/03/2024)
+## 📝 Personalización Rápida
 
-### 3. Agregar archivos
+### 1. Actualizar Nombres de Estudiantes
 
-#### Estructura de carpetas:
+Abre `index.html` y busca los placeholders:
+
+```html
+<!-- Estudiante 2 -->
+<h3>[Nombre Estudiante 2]</h3>
+<p><strong>Correo:</strong> [correo2@ejemplo.com]</p>
+
+<!-- Estudiante 3 -->
+<h3>[Nombre Estudiante 3]</h3>
+<p><strong>Correo:</strong> [correo3@ejemplo.com]</p>
+```
+
+Reemplaza con:
+- **Estudiante 2**: Nombre real y correo
+- **Estudiante 3**: Nombre real y correo
+
+### 2. Reemplazar Fechas y Datos Institucionales
+
+Busca y reemplaza en `index.html`:
+- `[DD/MM/AAAA]` → Fechas reales (ej: 15/03/2024)
+- `[Nombre de la Institución]` → Tu universidad
+- `[Semestre actual]` → Tu semestre
+- `[Institución Educativa]` → Tu institución
+
+### 3. Actualizar Calificaciones de Parciales
+
+Busca en `index.html`:
+```html
+<p class="exam-score">Calificación: <span class="score">___/100</span></p>
+```
+
+Reemplaza `___` con la calificación real.
+
+## 📁 Estructura de Carpetas para Archivos
+
 ```
 files/
-├── actividades/     → PDFs de actividades de clase
-├── tareas/          → PDFs, ZIPs de tareas
-├── laboratorios/    → PDFs, PKAs de laboratorios
-├── materiales/      → Presentaciones, guías, etc.
-└── proyecto-final/  → Documentos del proyecto final
+├── actividades/          → PDFs de actividades de clase
+├── tareas/              → PDFs/ZIPs de tareas
+├── laboratorios/        → Guías (PDF), Reportes (PDF) y Archivos PKA
+├── materiales/          → PDFs de módulos, presentaciones, guías
+├── proyecto-final/      → Documentos del proyecto final
+├── parciales/           → Exámenes (PDF) y respuestas (PDF) de parciales
+└── conclusion/          → Syllabus, rúbrica, reportes finales
 ```
 
-#### Pasos para agregar un archivo:
-1. Sube tu archivo a la carpeta correspondiente
-2. Asegúrate que el nombre coincida con el enlace en `index.html`
-3. Ejemplo: Si el HTML dice `files/tareas/tarea1.pdf`, tu archivo debe llamarse exactamente `tarea1.pdf`
+## 📤 Agregar Archivos
 
-### 4. Formatos de archivo soportados
-- **PDF**: Documentos, reportes, presentaciones
-- **ZIP**: Archivos comprimidos
-- **PKA**: Archivos de Cisco Packet Tracer
-- **Otros**: DOCX, PPTX, etc.
+### Para Laboratorios (Ejemplo: Laboratorio 1)
 
-## 🎨 Personalización Avanzada
+Sube estos archivos a `files/laboratorios/`:
+```
+lab1-guia.pdf      → Guía del laboratorio
+lab1-reporte.pdf   → Reporte del laboratorio
+lab1.pka           → Archivo Cisco Packet Tracer
+```
 
-### Cambiar colores
-Abre `styles.css` y modifica las variables en la parte superior:
+**Nota:** Los nombres DEBEN coincidir exactamente con los del HTML.
+
+### Para Módulos (Ejemplo: Módulo 1)
+
+Sube a `files/materiales/`:
+```
+modulo1-presentacion.pdf   → Presentación
+modulo1-guia.pdf          → Guía de estudio
+modulo1-recursos.zip      → Recursos adicionales (ZIP)
+```
+
+### Para Parciales (Ejemplo: Estudiante 1, Parcial 1)
+
+Sube a `files/parciales/`:
+```
+AC-Parcial1.pdf           → Examen del parcial
+AC-Parcial1-respuestas.pdf → Respuestas/Solución
+```
+
+Patrón de nombres:
+- **Alexandra Cruz**: `AC-Parcial[1/2/3]`
+- **Estudiante 2**: `E2-Parcial[1/2/3]`
+- **Estudiante 3**: `E3-Parcial[1/2/3]`
+
+## 🎨 Cambiar Colores
+
+Abre `styles.css` y modifica las variables CSS (línea 2-7):
 
 ```css
 :root {
@@ -59,83 +119,161 @@ Abre `styles.css` y modifica las variables en la parte superior:
 }
 ```
 
-### Agregar más actividades/tareas
-Copia y pega un bloque existente en `index.html` y modifica el contenido:
+Cambia los valores hexadecimales a tus colores preferidos.
+
+## ✅ Checklist de Personalización Completa
+
+- [ ] Actualizar nombres de estudiantes 2 y 3
+- [ ] Actualizar correos de los 3 estudiantes
+- [ ] Reemplazar todas las fechas `[DD/MM/AAAA]`
+- [ ] Actualizar nombre de institución
+- [ ] Actualizar semestre actual
+- [ ] Actualizar calificaciones de parciales
+- [ ] Subir PDFs de módulos a `files/materiales/`
+- [ ] Subir guías de laboratorios a `files/laboratorios/`
+- [ ] Subir reportes de laboratorios a `files/laboratorios/`
+- [ ] Subir archivos PKA a `files/laboratorios/`
+- [ ] Subir exámenes parciales a `files/parciales/`
+- [ ] Subir respuestas a `files/parciales/`
+- [ ] Subir documentos finales a `files/conclusion/`
+- [ ] Probar todos los enlaces de descarga
+- [ ] Probar en móvil (responsividad)
+- [ ] Hacer commit de cambios
+- [ ] Hacer merge a rama main (cuando esté listo)
+
+## 📋 Secciones de la Página
+
+La página está dividida en **7 secciones principales**:
+
+1. **Inicio** - Portada con descripción del curso
+2. **Descripción del Curso** - Objetivos, temas y metodología
+3. **Perfil de Estudiantes** - Información de 3 estudiantes
+4. **Módulos del Curso** - 3 módulos con materiales
+5. **Laboratorios Prácticos** - 6 laboratorios prácticos
+6. **Evaluaciones Parciales** - 3 parciales por estudiante
+7. **Conclusión del Curso** - Resumen y logros
+
+## 🔗 Enlaces en el Navegador
+
+```
+Inicio → #inicio
+Descripción del Curso → #descripcion
+Estudiantes → #estudiantes
+Módulos → #modulos
+Laboratorios → #laboratorios
+Parciales → #parciales
+Conclusión → #conclusion
+```
+
+## 📚 Formatos de Archivo Soportados
+
+✓ **PDF** - Documentos, reportes, presentaciones
+✓ **ZIP** - Archivos comprimidos
+✓ **PKA** - Archivos de Cisco Packet Tracer
+✓ **DOCX** - Documentos Word
+✓ **PPTX** - Presentaciones PowerPoint
+
+## 🔧 Comandos Git Útiles
+
+```bash
+# Ver cambios en la rama actual
+git status
+
+# Ver cambios realizados
+git diff
+
+# Agregar cambios
+git add .
+
+# Hacer commit
+git commit -m "Describe tus cambios"
+
+# Enviar cambios a GitHub
+git push origin copilot/create-course-activities-page
+
+# Ver historial
+git log --oneline
+```
+
+## 💾 Estructura HTML para Agregar Más Elementos
+
+### Para agregar un estudiante más:
 
 ```html
-<div class="activity-card">
-    <h3>Actividad 4: [Tu título]</h3>
-    <p class="activity-date">Fecha: [DD/MM/AAAA]</p>
-    <p>[Tu descripción]</p>
-    <div class="activity-files">
-        <a href="files/actividades/actividad4.pdf" class="file-link" download>
-            📄 Descargar PDF
+<div class="student-card">
+    <div class="student-header">
+        <div class="student-avatar">
+            <span class="avatar-placeholder">XX</span>
+        </div>
+        <div class="student-info">
+            <h3>[Nombre Completo]</h3>
+            <p class="student-subtitle">Estudiante de Redes Informáticas</p>
+        </div>
+    </div>
+    <div class="student-details">
+        <p><strong>Carrera:</strong> Ingeniería en Sistemas</p>
+        <p><strong>Correo:</strong> [correo@ejemplo.com]</p>
+        <h4>Competencias:</h4>
+        <ul>
+            <li>Competencia 1</li>
+            <li>Competencia 2</li>
+        </ul>
+    </div>
+</div>
+```
+
+### Para agregar un laboratorio más:
+
+```html
+<div class="lab-card">
+    <h3>Laboratorio 7: [Título del Laboratorio]</h3>
+    <p class="lab-date">Fecha: [DD/MM/AAAA]</p>
+    <p class="lab-description">
+        Descripción del laboratorio...
+    </p>
+    <div class="lab-files">
+        <a href="files/laboratorios/lab7-guia.pdf" class="file-link" download>
+            📄 Guía
+        </a>
+        <a href="files/laboratorios/lab7-reporte.pdf" class="file-link" download>
+            📋 Reporte
+        </a>
+        <a href="files/laboratorios/lab7.pka" class="file-link" download>
+            🔧 Archivo PKA
         </a>
     </div>
 </div>
 ```
 
-## 📱 Características
-
-### Navegación
-- Click en cualquier enlace del menú para ir a esa sección
-- El menú se mantiene fijo en la parte superior
-- Desplazamiento suave entre secciones
-
-### Responsive
-- Se adapta automáticamente a móviles, tablets y escritorio
-- Pruébalo cambiando el tamaño de la ventana
-
-### Animaciones
-- Los elementos aparecen con animación al hacer scroll
-- Efectos hover en botones y enlaces
-
-## 🔧 Solución de Problemas
+## ⚠️ Solución de Problemas
 
 ### Los archivos no se descargan
 - Verifica que el archivo exista en la carpeta correcta
-- Verifica que el nombre del archivo coincida exactamente con el enlace
+- Verifica que el nombre sea **exactamente igual** al del HTML
+- Revisa la consola del navegador (F12) para errores
 
-### Los cambios no aparecen
-- Espera unos minutos después de hacer commit
-- Limpia el caché del navegador (Ctrl+F5)
+### La página se ve distinto en móvil
+- Es normal, el diseño es responsivo
+- Prueba con F12 → Toggle device toolbar
 
-### El sitio no se ve bien en móvil
-- El diseño es responsive por defecto
-- Asegúrate de probar en un navegador moderno
+### Los cambios no se ven
+- Limpia el caché (Ctrl+Shift+R)
+- Recarga el servidor
+- Verifica que hayas guardado el archivo
 
-## 📚 Recursos Adicionales
+## 📞 Necesitas Ayuda
 
-### Documentación incluida
-- `files/README.md` → Guía detallada para gestionar archivos
-- Comentarios en el código fuente para referencia
+1. **Ver código HTML**: Abre `index.html` en VS Code
+2. **Ver estilos CSS**: Abre `styles.css`
+3. **Ver funciones JavaScript**: Abre `script.js`
+4. **Ver comandos git**: Revisa la sección "Comandos Git Útiles"
 
-### Mantenimiento
-- Actualiza el contenido regularmente
-- Agrega nuevas actividades conforme avances en el curso
-- Mantén los enlaces actualizados
+## 🎓 ¡Felicidades!
 
-## ✅ Checklist de Personalización
-
-- [ ] Actualizar información personal en el perfil
-- [ ] Reemplazar todas las fechas `[DD/MM/AAAA]`
-- [ ] Subir archivos a las carpetas correspondientes
-- [ ] Verificar que todos los enlaces funcionen
-- [ ] Probar el sitio en diferentes dispositivos
-- [ ] Actualizar el estado del proyecto final cuando corresponda
-
-## 💡 Consejos
-
-1. **Mantén copias de seguridad** de tus archivos importantes
-2. **Usa nombres descriptivos** para los archivos (sin espacios)
-3. **Actualiza regularmente** el contenido del portafolio
-4. **Prueba los enlaces** antes de compartir el sitio
-5. **Mantén el diseño consistente** al agregar nuevo contenido
-
-## 🎓 ¡Éxito!
-
-Tu portafolio está listo para ser usado. ¡Compártelo con tus profesores y compañeros!
+Tu portafolio está listo para ser personalizado y compartido. ¡Sigue los pasos anteriores y tendrás un sitio web profesional!
 
 ---
 
-**¿Necesitas ayuda?** Consulta el código HTML, CSS y JavaScript para ver ejemplos y patrones que puedes seguir.
+**Última actualización:** 07/12/2025
+**Rama:** copilot/create-course-activities-page
+**Estado:** Listo para personalización
