@@ -1298,6 +1298,24 @@ body {
     margin-top: 1rem;
 }
 
+/* Project Description Styles */
+.project-description {
+    padding: 1.5rem;
+    background: #f9f9f9;
+    border-top: 1px solid #eee;
+    border-radius: 0 0 8px 8px;
+}
+
+.project-description p {
+    margin-bottom: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.project-description p:last-child {
+    margin-bottom: 0;
+}
+
 /* Responsive Carousel */
 @media (max-width: 768px) {
     .carousel-container {
