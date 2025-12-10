@@ -920,11 +920,47 @@ body {
     margin: 0;
     border: none;
     border-radius: 0;
-    order: -2;
 }
 
 .material-card .pdf-preview iframe {
     height: 250px;
+}
+
+/* PDF Previews Container */
+.pdf-previews-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1.5rem;
+}
+
+.pdf-preview-item {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1rem;
+    background: #fafafa;
+}
+
+.pdf-preview-item h4 {
+    color: var(--color-primary);
+    margin: 0;
+    font-size: 1rem;
+}
+
+.pdf-preview-item .pdf-preview {
+    margin: 0;
+    border: none;
+}
+
+.pdf-preview-item .pdf-preview iframe {
+    height: 300px;
+}
+
+.pdf-preview-item .file-link {
+    align-self: flex-start;
 }
 
 .material-header {
