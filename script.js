@@ -96,3 +96,67 @@ function initMobileMenu() {
 }
 
 initMobileMenu();
+
+// Carousel functionality
+let currentSlide = 0;
+const slides = [
+    'files/galeria/20250904_083157.jpg',
+    'files/galeria/20251113_104750.jpg',
+    'files/galeria/20251113_112607.jpg',
+    'files/galeria/IMG-20250903-WA0071.jpg',
+    'files/galeria/IMG-20250903-WA0100.jpg',
+    'files/galeria/IMG-20251117-WA0194.jpg',
+    'files/galeria/IMG-20251117-WA0245.jpg',
+    'files/galeria/IMG-20251117-WA0351.jpg',
+    'files/galeria/IMG-20251118-WA0337.jpg'
+];
+
+document.addEventListener('DOMContentLoaded', () => {
+    initCarousel();
+});
+
+function initCarousel() {
+    const carouselIndicators = document.getElementById('carouselIndicators');
+    if (carouselIndicators) {
+        slides.forEach((_, index) => {
+            const dot = document.createElement('button');
+            dot.className = `carousel-dot ${index === 0 ? 'active' : ''}`;
+            dot.onclick = () => goToSlide(index);
+            carouselIndicators.appendChild(dot);
+        });
+    }
+}
+
+function changeSlide(direction) {
+    currentSlide += direction;
+    if (currentSlide >= slides.length) {
+        currentSlide = 0;
+    } else if (currentSlide < 0) {
+        currentSlide = slides.length - 1;
+    }
+    updateCarousel();
+}
+
+function goToSlide(index) {
+    currentSlide = index;
+    updateCarousel();
+}
+
+function updateCarousel() {
+    const carouselImage = document.getElementById('carouselImage');
+    const slideCounter = document.getElementById('slideCounter');
+    const dots = document.querySelectorAll('.carousel-dot');
+    
+    if (carouselImage) {
+        carouselImage.src = slides[currentSlide];
+        carouselImage.style.animation = 'fadeIn 0.5s ease-in-out';
+    }
+    
+    if (slideCounter) {
+        slideCounter.textContent = currentSlide + 1;
+    }
+    
+    dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentSlide);
+    });
+}
